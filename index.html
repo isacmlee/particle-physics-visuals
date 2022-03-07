@@ -6,9 +6,9 @@
     <meta name="keywords" content="Predicting a Particle&amp;apos;s Mass, Background, Data, Methods, Training Preformance, Testing Results, Conclusions, Future Improvements, Acknowledgements">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Paper</title>
+    <title>Predicting a Particle's Mass</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="Paper.css" media="screen">
+    <link rel="stylesheet" href="Paper.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.6.5, nicepage.com">
@@ -32,9 +32,16 @@
     <meta property="og:title" content="Paper">
     <meta property="og:type" content="website">
   </head>
-  <body data-home-page="Paper.html" data-home-page-title="Paper" class="u-body u-xl-mode"><header class="u-clearfix u-grey-50 u-header u-header" id="sec-d1f0"><div class="u-align-left u-clearfix u-sheet u-valign-bottom u-sheet-1">
-        <p class="u-text u-text-default u-text-1"><a href="https://github.com/UCSDJLEE/DSC180B-A11-Project">Github Repository</a><a>Research Paper</a> </p>
-      </div></header>
+  <body data-home-page="Paper.html" data-home-page-title="Paper" class="u-body u-xl-mode">
+    <header class="u-clearfix u-grey-50 u-header u-header" id="sec-d1f0">
+      <div class="u-align-left u-clearfix u-sheet u-valign-bottom u-sheet-1">
+        <p class="u-text u-text-default u-text-1">
+          <a href="https://github.com/UCSDJLEE/DSC180B-A11-Project">Github</a>
+          &nbsp;
+          <a>Research Paper</a> 
+        </p>
+      </div>
+    </header>
     <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="" data-image-width="1540" data-image-height="800" id="sec-25f9">
       <div class="u-clearfix u-sheet u-sheet-1">
         <h1 class="u-text u-text-default u-title u-text-1">Predicting a Particle's Mass</h1>
@@ -44,8 +51,8 @@
     <section class="u-clearfix u-palette-3-light-3 u-section-2" id="sec-377a">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout" style="">
-            <div class="u-layout-row" style="">
+          <div class="u-layout">
+            <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-left-cell u-size-28 u-size-xs-60 u-layout-cell-1" src="">
                 <div class="u-container-layout u-container-layout-1">
                   <div class="u-container-style u-group u-palette-1-light-2 u-shape-rectangle u-group-1">
@@ -123,7 +130,7 @@
     <section class="u-align-left u-clearfix u-palette-1-light-3 u-section-5" id="sec-5796">
       <div class="u-clearfix u-sheet u-sheet-1">
         <img class="u-expanded-height u-image u-image-default u-preserve-proportions u-image-1" src="images/trainingpref.png" alt="" data-image-width="1000" data-image-height="1000">
-        <h2 class="u-text u-text-default u-text-1">Training Preformance</h2>
+        <h2 class="u-text u-text-default u-text-1">Training Performance</h2>
         <p class="u-text u-text-2">During training we measured loss we using Root Mean Squared Error, and enforced the training loop with early stopping to prevent loss of robustness.
           Figure on the right shows an overall downward trend in RMSE measured on training and validation set. We can see that due to the nature of how the data is organized and because we did not remove outliers validation
           is unstable. This issue persists because trying to build a properly randomly sampled from multiple files tended to be extremely space inefficent.
@@ -137,11 +144,11 @@
         <div class="u-container-style u-group u-palette-1-base u-shape-rectangle u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <h2 class="u-text u-text-1">Testing Results</h2>
-            <p class="u-text u-text-2">After confirming that our model is capable of learning, it’s a turn to test the “fitness”, or generalizability, 
-              of the model. Similar approach is applied for test set as training and validation sets with a modification in the metric of loss. 
-              For evaluation using test set, we calculated the *resolution of the predictions: <br>
-              “Resolution = (prediction - truth) / truth”<br>
-              *The plot on the left is prediction resolution on 1000 different jets in the test set, the left skew shows that the model tends to predict closer to the truth but struggles with outliers</p>
+              <p class="u-text u-text-2">After confirming that our model is capable of learning, it’s a turn to test the “fitness”, or generalizability, 
+                of the model. Similar approach is applied for test set as training and validation sets with a modification in the metric of loss. 
+                For evaluation using test set, we calculated the *resolution of the predictions: <br>
+                “Resolution = (prediction - truth) / truth”<br>
+                *The plot on the left is prediction resolution on 1000 different jets in the test set, the left skew shows that the model tends to predict closer to the truth but struggles with outliers</p>
           </div>
         </div>
       </div>
@@ -149,8 +156,8 @@
     <section class="u-clearfix u-palette-1-light-3 u-section-7" id="sec-b8ee">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout" style="">
-            <div class="u-layout-row" style="">
+          <div class="u-layout">
+            <div class="u-layout-row">
               <div class="u-container-style u-layout-cell u-left-cell u-size-60 u-size-xs-60 u-layout-cell-1" src="">
                 <div class="u-container-layout u-container-layout-1">
                   <h2 class="u-align-center u-text u-text-default u-text-1">Conclusions</h2>
