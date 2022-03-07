@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Predicting a Particle&amp;apos;s Mass, Background, Data, Methods, Training Preformance, Testing Results, Conclusions, Future Improvements, Acknowledgements">
+    <meta name="description" content="">
+    <meta name="page_type" content="np-template-header-footer-from-plugin">
+    <title>Paper</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Paper.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.6.5, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": ""
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Paper">
+    <meta property="og:type" content="website">
+  </head>
+  <body data-home-page="Paper.html" data-home-page-title="Paper" class="u-body u-xl-mode"><header class="u-clearfix u-grey-50 u-header u-header" id="sec-d1f0"><div class="u-align-left u-clearfix u-sheet u-valign-bottom u-sheet-1">
+        <p class="u-text u-text-default u-text-1"><a href="https://github.com/UCSDJLEE/DSC180B-A11-Project">Github Repository</a><a>Research Paper</a> </p>
+      </div></header>
+    <section class="u-align-center u-clearfix u-image u-shading u-section-1" src="" data-image-width="1540" data-image-height="800" id="sec-25f9">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-title u-text-1">Predicting a Particle's Mass</h1>
+        <p class="u-large-text u-text u-text-variant u-text-2">Authors: Jayden Lee, Dan Ngo, Isac Lee</p>
+      </div>
+    </section>
+    <section class="u-clearfix u-palette-3-light-3 u-section-2" id="sec-377a">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div class="u-container-style u-layout-cell u-left-cell u-size-28 u-size-xs-60 u-layout-cell-1" src="">
+                <div class="u-container-layout u-container-layout-1">
+                  <div class="u-container-style u-group u-palette-1-light-2 u-shape-rectangle u-group-1">
+                    <div class="u-container-layout u-container-layout-2">
+                      <h2 class="u-align-center u-text u-text-default u-text-1">Background</h2>
+                      <p class="u-align-center u-text u-text-2">The Large Hadron Collider(LHC) is a particle accelerator that collides protons at near light speed to produce new subatomic particles for the purpose of research. 
+                        Prior research utilized neural networks on data collected from sensors around the collision to classify and predict properties of the produced particles. Our project used a neural network to try predict
+                        the ground-truth level mass to a higher degree of resolution than the existing mass prediction algorithm.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-right-cell u-size-32 u-size-xs-60 u-layout-cell-2" src="">
+                <div class="u-container-layout u-container-layout-3" src="">
+                  <div class="u-align-center u-container-style u-group u-palette-1-base u-shape-rectangle u-group-2">
+                    <div class="u-container-layout u-container-layout-4">
+                      <img class="u-image u-image-default u-image-1" src="images/cern_atlas.jpeg" alt="" data-image-width="1000" data-image-height="355">
+                    </div>
+                  </div>
+                  <div class="u-palette-1-base u-shape u-shape-rectangle u-shape-1"></div>
+                  <img class="u-image u-image-default u-image-2" src="images/whatisajet.jpg" alt="" data-image-width="1200" data-image-height="1028">
+                  <div class="u-palette-1-base u-shape u-shape-rectangle u-shape-2"></div>
+                  <img class="u-image u-image-default u-image-3" src="images/nwOtx-2000x1200.jpg" alt="" data-image-width="2000" data-image-height="1200">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-3" id="sec-c090">
+      <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-spacing-top u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div class="u-align-left u-container-style u-layout-cell u-left-cell u-palette-1-light-3 u-size-32 u-layout-cell-1" src="">
+              <div class="u-container-layout u-container-layout-1">
+                <h2 class="u-text u-text-1">Data</h2>
+                <p class="u-text u-text-2">
+                  Data was pulled from the CERN(European Organization for Nuclear Research) opendata portal. The raw data picked up from the sensors are translated into low level features
+                  and grouped into "jets" of particles. A group of particles flying in close proximity is referred to as a jet. In our dataset each jet is an instance of data tracking 19 features of up to 100 particles
+                  within the jet. The dataset was also split by the classification of subatomic particles contained within the jet, but was made blind to this in hopes of improving the robustness of the model. Each data file contains a different 
+                  range of jet masses, which presents some bias to the neural network model that will be seen during validation.
+                  </p>
+              </div>
+            </div>
+            <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-28 u-layout-cell-2" src="">
+              <div class="u-container-layout u-container-layout-2">
+                <img class="u-image u-image-default u-image-1" src="images/Illustration-of-a-heavy-flavour-jet-with-a-secondary-vertex-SV-from-the-decay-of-a-b-or.png" alt="" data-image-width="667" data-image-height="417">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-palette-3-light-3 u-section-4" id="sec-d6ef">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-container-style u-group u-palette-1-base u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <img class="u-image u-image-default u-image-1" src="images/28230600px-Neural_network.svg.png" alt="" data-image-width="600" data-image-height="400">
+            <p class="u-text u-text-1">Output Node&nbsp;</p>
+            <p class="u-text u-text-2">Input Nodes&nbsp;</p>
+            <h2 class="u-text u-text-default u-text-3">Methods<br>
+            </h2>
+            <p class="u-text u-text-4">
+              The data files were easily convertible into numpy and pandas data formats, data analysis was performed primarily using these libraries. We used feature engineered the 100 length arrays into higher level single value features
+              to perform correlation and population density based on the truth-level mass labels. This was then used to construct a deep learning model. Any deep learning model is made up of an input layer and several hidden layers and 
+              an output layer. We used two types of architechture, PyTorch and Keras, their primary difference being that PyTorch creates an unordered set of particles for each jet. With some testing we found that the order of the arrays actually has an affect
+              on prediction resolution, so our final model was built and trained using PyTorch. The pytorch architechture requires the data be converted into .pytorch files which are stored in static memory, and loads in batches of those files into RAM prior to prediction.
+            </p>
+            <p class="u-text u-text-5">Hidden Nodes&nbsp;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-left u-clearfix u-palette-1-light-3 u-section-5" id="sec-5796">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-expanded-height u-image u-image-default u-preserve-proportions u-image-1" src="images/trainingpref.png" alt="" data-image-width="1000" data-image-height="1000">
+        <h2 class="u-text u-text-default u-text-1">Training Preformance</h2>
+        <p class="u-text u-text-2">During training we measured loss we using Root Mean Squared Error, and enforced the training loop with early stopping to prevent loss of robustness.
+          Figure on the right shows an overall downward trend in RMSE measured on training and validation set. We can see that due to the nature of how the data is organized and because we did not remove outliers validation
+          is unstable. This issue persists because trying to build a properly randomly sampled from multiple files tended to be extremely space inefficent.
+          You can see training process stopped after ~30th epoch, and the best weights were calculated at ~25th epoch.
+        </p>
+      </div>
+    </section>
+    <section class="u-clearfix u-palette-3-light-3 u-section-6" id="sec-e7cb">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-image u-image-default u-image-1" src="images/Untitled.png" alt="" data-image-width="864" data-image-height="576">
+        <div class="u-container-style u-group u-palette-1-base u-shape-rectangle u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h2 class="u-text u-text-1">Testing Results</h2>
+            <p class="u-text u-text-2">After confirming that our model is capable of learning, it’s a turn to test the “fitness”, or generalizability, 
+              of the model. Similar approach is applied for test set as training and validation sets with a modification in the metric of loss. 
+              For evaluation using test set, we calculated the *resolution of the predictions: <br>
+              “Resolution = (prediction - truth) / truth”<br>
+              *The plot on the left is prediction resolution on 1000 different jets in the test set, the left skew shows that the model tends to predict closer to the truth but struggles with outliers</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-palette-1-light-3 u-section-7" id="sec-b8ee">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div class="u-container-style u-layout-cell u-left-cell u-size-60 u-size-xs-60 u-layout-cell-1" src="">
+                <div class="u-container-layout u-container-layout-1">
+                  <h2 class="u-align-center u-text u-text-default u-text-1">Conclusions</h2>
+                  <p class="u-align-center u-text u-text-2">Mass is an imporant element in determining the type and contents of a jet, but our model was not capable of outpreforming
+                    the existing mass prediction algorithm. However our model did not produce a large spike of predictions at zero, unlike the 
+                    algorithm. We believe with further improvements a well trained neural network should be able to outpreform the existing algorithm.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-palette-3-light-3 u-section-8" id="sec-4956">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">Future Improvements</h2>
+        <p class="u-text u-text-default u-text-2">Though our initial aim was to build a model that better predicts jet mass than soft-drop algorithm, algorithm-based jet mass estimation, 
+          more precisely measures the ground-truth level jet mass than our model. To improve performance we could try using more complex NN layers. For this project we increased complexity by increasing
+          the number of layers, but perhaps implementing custom layers with even more conciousness of how jet structure could dramatically improve performance. We could also put more time into trying to properly split 
+          and randomize the dataset in order to improve the validation curve.
+          </p>
+      </div>
+    </section>
+    <section class="u-align-center u-clearfix u-grey-50 u-section-9" id="sec-b443">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-text-1">Acknowledgements</h1>
+        <p class="u-text u-text-2">
+          We'd like to thank our professors and teaching assistant for their guidance through this project. <br>
+          Proffesors:<br>
+          <a href="https://orcid.org/0000-0002-5076-7096">Javier Duarte</a><br>
+          <a href="https://orcid.org/0000-0001-5912-6124.">Frank Würthwein</a><br>
+          TA:<br>
+          Farouk Mokhtar
+        </p>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-8709"><div class="u-clearfix u-sheet u-sheet-1">
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+    </section>
+  </body>
+</html>
